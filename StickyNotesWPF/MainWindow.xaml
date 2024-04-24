@@ -5,11 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StickyNotesWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"
+        WindowStyle="None"
+        ResizeMode="CanResize"
+        MouseDown="Window_MouseDown"
+        >
     <Grid>
+        <Button HorizontalAlignment='Right' VerticalAlignment="Top" Click="CloseButton">Close window</Button>
         <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">
             This is going to be a new Sticky Notes App!!
         </TextBlock>
-
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Bottom" MouseUp="TextBlock1_MouseUp">Click me</TextBlock>
+        <Ellipse Width="80" Height="80" Fill="MediumAquamarine" Opacity="0.5" Margin="284,217,436,153" Panel.ZIndex="-1"/>
+        <Ellipse Width="180" Height="100" Fill="DarkSalmon" AllowDrop="True" Panel.ZIndex="-2"></Ellipse>
     </Grid>
 </Window>
