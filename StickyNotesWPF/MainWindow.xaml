@@ -8,7 +8,7 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">
-            This is going to be a new Sticky Notes App!
+            This is going to be a new Sticky Notes App!!
         </TextBlock>
 
     </Grid>
