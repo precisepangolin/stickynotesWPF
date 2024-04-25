@@ -10,13 +10,16 @@
         ResizeMode="CanResize"
         MouseDown="Window_MouseDown"
         >
-    <Grid>
+    <Grid Margin="0" Background="Bisque">
         <Button HorizontalAlignment='Right' VerticalAlignment="Top" Click="CloseButton">Close window</Button>
         <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">
             This is going to be a new Sticky Notes App!!
         </TextBlock>
-        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Bottom" MouseUp="TextBlock1_MouseUp">Click me</TextBlock>
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Bottom" MouseUp="TextBlock1_MouseUp" Margin="0,0,0,10">Click me</TextBlock>
         <Ellipse Width="80" Height="80" Fill="MediumAquamarine" Opacity="0.5" Margin="284,217,436,153" Panel.ZIndex="-1"/>
         <Ellipse Width="180" Height="100" Fill="DarkSalmon" AllowDrop="True" Panel.ZIndex="-2"></Ellipse>
+        <TextBox Margin="10,30" AcceptsReturn="True" TextWrapping="Wrap" Foreground="SaddleBrown" Background="#19F013FF">
+            Write your text hereeee
+        </TextBox>
     </Grid>
 </Window>
