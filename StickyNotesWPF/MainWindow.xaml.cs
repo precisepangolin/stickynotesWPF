@@ -39,5 +39,17 @@ namespace StickyNotesWPF
             if (e.ChangedButton == MouseButton.Left)
                 this.DragMove();
         }
+
+        private void SpellCheckToggle(object sender, RoutedEventArgs e)
+        {
+            if (WritingBox.SpellCheck.IsEnabled)
+            {
+                WritingBox.SpellCheck.IsEnabled = false;
+            }
+            else
+            {
+                WritingBox.SpellCheck.IsEnabled = true;
+            }
+        }
     }
 }
