@@ -45,10 +45,12 @@ namespace StickyNotesWPF
             if (WritingBox.SpellCheck.IsEnabled)
             {
                 WritingBox.SpellCheck.IsEnabled = false;
+                WritingBox2.SpellCheck.IsEnabled = false;
             }
             else
             {
                 WritingBox.SpellCheck.IsEnabled = true;
+                WritingBox2.SpellCheck.IsEnabled = true;
             }
         }
     }

@@ -19,15 +19,17 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="40" />
             <RowDefinition Height="8*"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="5*"/>
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
         <CheckBox Margin="10" Grid.Column="0" Grid.Row="0" Click="SpellCheckToggle">Spellcheck (en-US)</CheckBox>
         <TextBlock Margin="10" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2"><Bold>Bold</Bold></TextBlock>
         <Button Margin="10" Grid.Column="2" Grid.Row="0" Content="_Close window" Click="CloseButton"/>
-        <TextBlock Margin="10" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1">
+        <TextBlock Margin="10" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="3">
             This is going to be a new Sticky Notes App!!
         </TextBlock>
-        <Ellipse Grid.Row="1" Fill="MediumAquamarine" Opacity="0.5" Panel.ZIndex="-1" Grid.ColumnSpan="2" Margin="208,147,193,133" RenderTransformOrigin="0.5,0.5">
+        <Ellipse Grid.Row="1" Fill="MediumAquamarine" Opacity="0.5" Panel.ZIndex="-1" Grid.ColumnSpan="2" Margin="163,34,174,43" RenderTransformOrigin="0.5,0.5">
             <Ellipse.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -37,7 +39,7 @@
                 </TransformGroup>
             </Ellipse.RenderTransform>
         </Ellipse>
-        <Ellipse Grid.Row="1" Fill="DarkSalmon" AllowDrop="True" Panel.ZIndex="-2" Grid.ColumnSpan="2" Margin="0,92,203,116" Grid.Column="1" RenderTransformOrigin="0.5,0.5">
+        <Ellipse Grid.Row="1" Fill="DarkSalmon" AllowDrop="True" Panel.ZIndex="-2" Grid.ColumnSpan="3" Margin="266,52,201,48" RenderTransformOrigin="0.5,0.5">
             <Ellipse.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -50,6 +52,10 @@
         <TextBox Margin="10,0,10,0" Grid.Row="1" Grid.ColumnSpan="3" AcceptsReturn="True" TextWrapping="Wrap" Foreground="SaddleBrown" Background="#19F013FF" x:Name="WritingBox" Language="en-US">
             Write your text hereeee
         </TextBox>
-        <TextBlock Margin="10" Grid.Row="2" Grid.Column="1">Ende</TextBlock>
+        <GridSplitter Margin="10,0,10,0" Grid.Row="2" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" Background="#AAAAAAAA" />
+        <TextBox Name ="WritingBox2" Language="en-US" Margin="10,0,10,0" Grid.Row="3" Grid.ColumnSpan="3" AcceptsReturn="True" TextWrapping="Wrap" Background="#EEEEEEEE">
+            Place for more text
+        </TextBox>
+        <TextBlock Margin="10" Grid.Row="4" Grid.Column="1">Ende</TextBlock>
     </Grid>
 </Window>
