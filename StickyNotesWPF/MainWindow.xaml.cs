@@ -53,5 +53,22 @@ namespace StickyNotesWPF
                 WritingBox2.SpellCheck.IsEnabled = true;
             }
         }
+
+        private void Bold_MouseUp(object sender, RoutedEventArgs e)
+        {
+            if (WritingBox.Selection != null)
+            {
+
+                if (!WritingBox.Selection.GetPropertyValue(TextElement.FontWeightProperty).Equals(FontWeights.Bold))
+                {
+                    WritingBox.Selection.ApplyPropertyValue(TextElement.FontWeightProperty, FontWeights.Bold);
+                }
+                else
+                {
+                    WritingBox.Selection.ApplyPropertyValue(TextElement.FontWeightProperty, FontWeights.Normal);
+                }
+            }
+           
+        }
     }
 }
