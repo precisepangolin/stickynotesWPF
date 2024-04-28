@@ -58,7 +58,6 @@ namespace StickyNotesWPF
         {
             if (WritingBox.Selection != null)
             {
-
                 if (!WritingBox.Selection.GetPropertyValue(TextElement.FontWeightProperty).Equals(FontWeights.Bold))
                 {
                     WritingBox.Selection.ApplyPropertyValue(TextElement.FontWeightProperty, FontWeights.Bold);
@@ -68,7 +67,21 @@ namespace StickyNotesWPF
                     WritingBox.Selection.ApplyPropertyValue(TextElement.FontWeightProperty, FontWeights.Normal);
                 }
             }
-           
+        }
+
+        private void Italic_MouseUp(object sender, RoutedEventArgs e)
+        {
+            if (WritingBox.Selection != null)
+            {
+                if (!WritingBox.Selection.GetPropertyValue(TextElement.FontStyleProperty).Equals(FontStyles.Italic))
+                {
+                    WritingBox.Selection.ApplyPropertyValue(TextElement.FontStyleProperty, FontStyles.Italic);
+                }
+                else
+                {
+                    WritingBox.Selection.ApplyPropertyValue(TextElement.FontStyleProperty, FontStyles.Normal);
+                }
+            }
         }
     }
 }
