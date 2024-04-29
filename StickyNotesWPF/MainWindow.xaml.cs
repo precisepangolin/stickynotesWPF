@@ -19,8 +19,10 @@ namespace StickyNotesWPF
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    
     public partial class MainWindow : Window
     {
+
         public MainWindow()
         {
             InitializeComponent();
@@ -87,8 +89,9 @@ namespace StickyNotesWPF
 
         void SaveRTBContent(Object sender, RoutedEventArgs args)
         {
+            var fileLocation = Environment.ExpandEnvironmentVariables(@"%LOCALAPPDATA%\testing.rtf");
             TextRange text = new TextRange(WritingBox.Document.ContentStart, WritingBox.Document.ContentEnd);
-            using(FileStream file = new FileStream(@".\testdoc.rtf", FileMode.Create))
+            using(FileStream file = new FileStream(fileLocation, FileMode.Create))
             {
                 text.Save(file, System.Windows.DataFormats.Rtf);
             }
