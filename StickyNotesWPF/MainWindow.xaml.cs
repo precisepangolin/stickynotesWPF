@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -83,5 +84,16 @@ namespace StickyNotesWPF
                 }
             }
         }
+
+        void SaveRTBContent(Object sender, RoutedEventArgs args)
+        {
+            TextRange text = new TextRange(WritingBox.Document.ContentStart, WritingBox.Document.ContentEnd);
+            using(FileStream file = new FileStream(@".\testdoc.rtf", FileMode.Create))
+            {
+                text.Save(file, System.Windows.DataFormats.Rtf);
+            }
+        }
+
+
     }
 }
