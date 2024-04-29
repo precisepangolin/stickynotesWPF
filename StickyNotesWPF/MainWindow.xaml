@@ -37,6 +37,8 @@
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
         <CheckBox Margin="10" Grid.Column="0" Grid.Row="0" Click="SpellCheckToggle">Spellcheck (en-US)</CheckBox>
+
+        <Button Style="{StaticResource btnStyle}" Margin="-30,10,10,10" Grid.Column="1" HorizontalAlignment="Left" Click="LoadRTBContent">Load</Button>
         <Button Style="{StaticResource btnStyle}" Margin="10" Grid.Column="1" HorizontalAlignment="Left" Click="SaveRTBContent">Save</Button>
 
         <Button Style="{StaticResource btnStyle}" FontWeight="Bold" Margin="10" Grid.Column="1" HorizontalAlignment="Center" Click="Bold_MouseUp">B</Button>

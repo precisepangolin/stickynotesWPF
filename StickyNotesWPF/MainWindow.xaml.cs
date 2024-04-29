@@ -28,11 +28,6 @@ namespace StickyNotesWPF
             InitializeComponent();
         }
 
-        private void TextBlock1_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            MessageBox.Show("You clicked me at " + e.GetPosition(this).ToString());
-        }
-
         private void CloseButton(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -95,6 +90,15 @@ namespace StickyNotesWPF
             {
                 text.Save(file, System.Windows.DataFormats.Rtf);
             }
+        }
+
+        void LoadRTBContent(Object sender, RoutedEventArgs args)
+        {
+            var fileLocation = Environment.ExpandEnvironmentVariables(@"%LOCALAPPDATA%\testing.rtf");
+            //var stream = new MemoryStream(Encoding.Unicode.GetBytes(fileLocation));
+            FileStream stream = new FileStream(fileLocation, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+            WritingBox.Document.Blocks.Clear();
+            WritingBox.Selection.Load(stream, DataFormats.Rtf);
         }
 
 
