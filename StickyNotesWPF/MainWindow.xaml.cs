@@ -22,7 +22,7 @@ namespace StickyNotesWPF
     
     public partial class MainWindow : Window
     {
-
+       
         public MainWindow()
         {
             InitializeComponent();
@@ -95,12 +95,17 @@ namespace StickyNotesWPF
         void LoadRTBContent(Object sender, RoutedEventArgs args)
         {
             var fileLocation = Environment.ExpandEnvironmentVariables(@"%LOCALAPPDATA%\testing.rtf");
-            //var stream = new MemoryStream(Encoding.Unicode.GetBytes(fileLocation));
             FileStream stream = new FileStream(fileLocation, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
             WritingBox.Document.Blocks.Clear();
             WritingBox.Selection.Load(stream, DataFormats.Rtf);
         }
 
-
+        private async void AutoSave(object sender, TextChangedEventArgs e)
+        {
+            StatusBox.Text = "•";
+            await Task.Delay(300);
+            SaveRTBContent(sender, e);
+            StatusBox.Text = "";
+        }
     }
 }
