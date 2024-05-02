@@ -36,7 +36,7 @@
             <RowDefinition Height="5*" MinHeight="40"/>
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
-        <CheckBox Margin="10" Grid.Column="0" Grid.Row="0" Click="SpellCheckToggle">Spellcheck (en-US)</CheckBox>
+        <CheckBox Margin="10" Grid.Column="0" Grid.Row="0" Click="SpellCheckToggle">Spellcheck</CheckBox>
 
         <Button Style="{StaticResource btnStyle}" Margin="-30,10,10,10" Grid.Column="1" HorizontalAlignment="Left" Click="LoadRTBContent">Load</Button>
         <Button Style="{StaticResource btnStyle}" Margin="10" Grid.Column="1" HorizontalAlignment="Left" Click="SaveRTBContent">Save</Button>
@@ -46,10 +46,10 @@
         <Button Margin="10" Grid.Column="2" Grid.Row="0" Content="_Close window" Click="CloseButton" ToolTip="Close window"/>
         <TextBlock Foreground="#AAAAAA" Margin="0,0,30,10" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="2" Text="{Binding ElementName=WritingBox, Path=(local:CharacterCountBehavior.CharacterCount)}" />
 
-        <RichTextBox  x:Name="WritingBox" local:CharacterCountBehavior.RichTextBox="{Binding ElementName=WritingBox}" Margin="10,0,10,0" Grid.Row="1" Grid.ColumnSpan="3" AcceptsReturn="True" Foreground="SaddleBrown" Background="#19F013FF" Language="en-US"  ScrollViewer.VerticalScrollBarVisibility="Auto" TextChanged="AutoSave" />
+        <RichTextBox  x:Name="WritingBox" InputLanguageManager.InputLanguage="en-US"  local:CharacterCountBehavior.RichTextBox="{Binding ElementName=WritingBox}" Margin="10,0,10,0" Grid.Row="1" Grid.ColumnSpan="3" AcceptsReturn="True" Foreground="SaddleBrown" Background="#19F013FF" ScrollViewer.VerticalScrollBarVisibility="Auto" TextChanged="AutoSave" />
         <GridSplitter Margin="10,0,10,0" Grid.Row="2" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" Background="#AAAAAAAA" />
-        
-        <TextBox Name ="WritingBox2" Language="en-US" Margin="10,0,10,0" Grid.Row="3" Grid.ColumnSpan="3" AcceptsReturn="True" TextWrapping="Wrap" Background="#EEEEEEEE" ScrollViewer.VerticalScrollBarVisibility="Auto">
+
+        <TextBox Name ="WritingBox2" InputLanguageManager.InputLanguage="en-US" Margin="10,0,10,0" Grid.Row="3" Grid.ColumnSpan="3" AcceptsReturn="True" TextWrapping="Wrap" Background="#EEEEEEEE" ScrollViewer.VerticalScrollBarVisibility="Auto">
             Place for more text
         </TextBox>
         <TextBlock Foreground="#AAAAAA" Margin="0,0,30,10" Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="2" Text="{Binding ElementName=WritingBox2, Path=Text.Length}" />
