@@ -54,6 +54,17 @@ namespace StickyNotesWPF
             }
         }
 
+        private void ClearFormatting_MouseUp(object sender, RoutedEventArgs e)
+        {
+            if (WritingBox.Selection != null)
+            {
+                WritingBox.Selection.ApplyPropertyValue(TextElement.FontWeightProperty, FontWeights.Normal);
+                WritingBox.Selection.ApplyPropertyValue(TextElement.FontStyleProperty, FontStyles.Normal);
+                WritingBox.Selection.ApplyPropertyValue(Inline.TextDecorationsProperty, null);
+
+            }
+        }
+
         private void Bold_MouseUp(object sender, RoutedEventArgs e)
         {
             if (WritingBox.Selection != null)
