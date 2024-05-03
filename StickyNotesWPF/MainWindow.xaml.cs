@@ -84,6 +84,21 @@ namespace StickyNotesWPF
             }
         }
 
+        private void Underline_MouseUp(object sender, RoutedEventArgs e)
+        {
+            if (WritingBox.Selection != null)
+            {
+                if (!WritingBox.Selection.GetPropertyValue(Inline.TextDecorationsProperty).Equals(TextDecorations.Underline))
+                {
+                    WritingBox.Selection.ApplyPropertyValue(Inline.TextDecorationsProperty, TextDecorations.Underline);
+                }
+                else
+                {
+                    WritingBox.Selection.ApplyPropertyValue(Inline.TextDecorationsProperty, null);
+                }
+            }
+        }
+
         void SaveRTBContent(Object sender, RoutedEventArgs args)
         {
             var fileLocation = Environment.ExpandEnvironmentVariables(@"%LOCALAPPDATA%\testing.rtf");
