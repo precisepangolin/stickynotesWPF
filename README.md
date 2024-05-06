@@ -6,15 +6,15 @@ It was supposed to be a remake of Windows Sticky Notes in WPF, but I changed my 
 ## Features
 
 ### Current features
-* Two adjustable writing panels - currently one rich text box and one auxiliary simple text box
+* Two adjustable writing panels with rich text boxes
 * Togglable spellcheck (en-US)
-* Characters counter
-* Autosave (saves to local AppData folder)
+* Character counter
+* Autosave (saves both panels to local AppData folder)
 
 ### TODO
-* Autosave second panel, load second panel
 * Change spellcheck language
 * Better looking UI
+* Add bold, italics and underline to second box
 
 ## Screenshot
 
