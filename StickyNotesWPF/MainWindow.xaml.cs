@@ -25,6 +25,9 @@ namespace StickyNotesWPF
     public partial class MainWindow : Window
     {
 
+        private readonly string fileLocation1 = Environment.ExpandEnvironmentVariables(@"%LOCALAPPDATA%\mystickynotesfile1.rtf");
+        private readonly string fileLocation2 = Environment.ExpandEnvironmentVariables(@"%LOCALAPPDATA%\mystickynotesfile2.rtf");
+        
         public MainWindow()
         {
             InitializeComponent();
@@ -112,9 +115,14 @@ namespace StickyNotesWPF
 
         void SaveRTBContent(Object sender, RoutedEventArgs args)
         {
-            var fileLocation = Environment.ExpandEnvironmentVariables(@"%LOCALAPPDATA%\testing.rtf");
-            TextRange text = new TextRange(WritingBox.Document.ContentStart, WritingBox.Document.ContentEnd);
-            using(FileStream file = new FileStream(fileLocation, FileMode.Create))
+            Save(fileLocation1, WritingBox);
+            Save(fileLocation2, WritingBox2);
+        }
+
+        private void Save(string path, System.Windows.Controls.RichTextBox currentWritingBox)
+        {
+            TextRange text = new TextRange(currentWritingBox.Document.ContentStart, currentWritingBox.Document.ContentEnd);
+            using (FileStream file = new FileStream(path, FileMode.Create))
             {
                 text.Save(file, System.Windows.DataFormats.Rtf);
             }
@@ -122,10 +130,15 @@ namespace StickyNotesWPF
 
         void LoadRTBContent(Object sender, RoutedEventArgs args)
         {
-            var fileLocation = Environment.ExpandEnvironmentVariables(@"%LOCALAPPDATA%\testing.rtf");
-            FileStream stream = new FileStream(fileLocation, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-            WritingBox.Document.Blocks.Clear();
-            WritingBox.Selection.Load(stream, DataFormats.Rtf);
+            Load(fileLocation1, WritingBox);
+            Load(fileLocation2, WritingBox2);
+        }
+
+        private void Load(string path, System.Windows.Controls.RichTextBox currentWritingBox)
+        {
+            FileStream stream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+            currentWritingBox.Document.Blocks.Clear();
+            currentWritingBox.Selection.Load(stream, DataFormats.Rtf);
         }
 
         private async void AutoSave(object sender, TextChangedEventArgs e)
