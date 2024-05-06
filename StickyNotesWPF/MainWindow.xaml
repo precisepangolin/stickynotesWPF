@@ -54,7 +54,7 @@
         <RichTextBox  x:Name="WritingBox" InputLanguageManager.InputLanguage="en-US"  local:CharacterCountBehavior.RichTextBox="{Binding ElementName=WritingBox}" Margin="10,0,10,0" Grid.Row="1" Grid.ColumnSpan="3" AcceptsReturn="True" Foreground="SaddleBrown" Background="#19F013FF" ScrollViewer.VerticalScrollBarVisibility="Auto" TextChanged="AutoSave" />
         <GridSplitter Margin="10,0,10,0" Grid.Row="2" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" Background="#AAAAAAAA" />
 
-        <RichTextBox Name ="WritingBox2" InputLanguageManager.InputLanguage="en-US" local:CharacterCountBehavior.RichTextBox="{Binding ElementName=WritingBox2}" Margin="10,0,10,0" Grid.Row="3" Grid.ColumnSpan="3" AcceptsReturn="True" Background="#EEEEEEEE" ScrollViewer.VerticalScrollBarVisibility="Auto"  />
+        <RichTextBox Name ="WritingBox2" InputLanguageManager.InputLanguage="en-US" local:CharacterCountBehavior.RichTextBox="{Binding ElementName=WritingBox2}" Margin="10,0,10,0" Grid.Row="3" Grid.ColumnSpan="3" AcceptsReturn="True" Background="#EEEEEEEE" ScrollViewer.VerticalScrollBarVisibility="Auto" TextChanged="AutoSave" />
         <TextBlock Foreground="#AAAAAA" Margin="0,0,30,10" Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="2" Text="{Binding ElementName=WritingBox2, Path=(local:CharacterCountBehavior.CharacterCount)}" />
 
         <TextBlock x:Name="StatusBox" VerticalAlignment="Top"  HorizontalAlignment="Right" Margin="10,0,20,10" Foreground="Gray" Grid.Row="1" Grid.Column="2" />
