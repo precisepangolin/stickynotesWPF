@@ -64,7 +64,6 @@ namespace StickyNotesWPF
                 WritingBox.Selection.ApplyPropertyValue(TextElement.FontWeightProperty, FontWeights.Normal);
                 WritingBox.Selection.ApplyPropertyValue(TextElement.FontStyleProperty, FontStyles.Normal);
                 WritingBox.Selection.ApplyPropertyValue(Inline.TextDecorationsProperty, null);
-
             }
         }
 
@@ -72,14 +71,19 @@ namespace StickyNotesWPF
         {
             if (WritingBox.Selection != null)
             {
-                if (!WritingBox.Selection.GetPropertyValue(TextElement.FontWeightProperty).Equals(FontWeights.Bold))
-                {
-                    WritingBox.Selection.ApplyPropertyValue(TextElement.FontWeightProperty, FontWeights.Bold);
-                }
-                else
-                {
-                    WritingBox.Selection.ApplyPropertyValue(TextElement.FontWeightProperty, FontWeights.Normal);
-                }
+                MakeTextBold(WritingBox);
+            }
+        }
+
+        private static void MakeTextBold(System.Windows.Controls.RichTextBox rtb)
+        {
+            if (!rtb.Selection.GetPropertyValue(TextElement.FontWeightProperty).Equals(FontWeights.Bold))
+            {
+                rtb.Selection.ApplyPropertyValue(TextElement.FontWeightProperty, FontWeights.Bold);
+            }
+            else
+            {
+                rtb.Selection.ApplyPropertyValue(TextElement.FontWeightProperty, FontWeights.Normal);
             }
         }
 
@@ -119,9 +123,9 @@ namespace StickyNotesWPF
             Save(fileLocation2, WritingBox2);
         }
 
-        private void Save(string path, System.Windows.Controls.RichTextBox currentWritingBox)
+        private static void Save(string path, System.Windows.Controls.RichTextBox rtb)
         {
-            TextRange text = new TextRange(currentWritingBox.Document.ContentStart, currentWritingBox.Document.ContentEnd);
+            TextRange text = new TextRange(rtb.Document.ContentStart, rtb.Document.ContentEnd);
             using (FileStream file = new FileStream(path, FileMode.Create))
             {
                 text.Save(file, System.Windows.DataFormats.Rtf);
@@ -134,11 +138,11 @@ namespace StickyNotesWPF
             Load(fileLocation2, WritingBox2);
         }
 
-        private void Load(string path, System.Windows.Controls.RichTextBox currentWritingBox)
+        private static void Load(string path, System.Windows.Controls.RichTextBox rtb)
         {
             FileStream stream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-            currentWritingBox.Document.Blocks.Clear();
-            currentWritingBox.Selection.Load(stream, DataFormats.Rtf);
+            rtb.Document.Blocks.Clear();
+            rtb.Selection.Load(stream, DataFormats.Rtf);
         }
 
         private async void AutoSave(object sender, TextChangedEventArgs e)
