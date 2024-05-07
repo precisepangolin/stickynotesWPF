@@ -30,7 +30,14 @@ namespace StickyNotesWPF
         
         public MainWindow()
         {
+            Loaded += MyWindow_Loaded;
             InitializeComponent();
+        }
+
+        private void MyWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Welcome to sticky notes");
+            LoadRTBContent(sender, e);
         }
 
         private void CloseButton(object sender, RoutedEventArgs e)
