@@ -9,5 +9,6 @@
             <Setter Property="BorderThickness" Value="0"/>
         </Style>
         <system:Double x:Key="{x:Static SystemParameters.VerticalScrollBarWidthKey}">10</system:Double>
+        <system:Double x:Key="{x:Static SystemParameters.VerticalScrollBarButtonHeightKey}">10</system:Double>
     </Application.Resources>
 </Application>
