@@ -15,6 +15,7 @@ It was supposed to be a remake of Windows Sticky Notes in WPF, but I changed my 
 ### TODO
 * Changeable spellcheck language
 * Work on UI appearance
+* Dark mode
 * Add bold, italics and underline to second writing box
 * Toggable autosave
 * Add bullet lists
