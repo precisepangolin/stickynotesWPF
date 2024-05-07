@@ -21,7 +21,8 @@ It was supposed to be a remake of Windows Sticky Notes in WPF, but I changed my 
 * Add bullet lists
 
 ## Screenshot
+![image](https://github.com/precisepangolin/stickynotesWPF/assets/61357898/37fee2b4-be93-447c-85ff-a52a121f538b)
 
-![image](https://github.com/precisepangolin/stickynotesWPF/assets/61357898/bc6077d7-487f-4782-af51-d38383e03447)
+
 
 
