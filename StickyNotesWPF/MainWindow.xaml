@@ -29,12 +29,11 @@
             <Setter Property="Background" Value="WhiteSmoke"/>
             <Style.Resources>
                 <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="3" />
-                    <Setter Property="ClipToBounds" Value="True"/>
-                    
+                    <Setter Property="CornerRadius" Value="5" />
+
                     <Setter Property="Effect">
                         <Setter.Value>
-                            <DropShadowEffect ShadowDepth="0" BlurRadius="10" />
+                            <DropShadowEffect ShadowDepth="0" BlurRadius="2" Color="#AAAAAAAA" />
 
                         </Setter.Value>
                     </Setter>
@@ -77,14 +76,14 @@
             <Underline>U</Underline>
         </Button>
 
-        <Button Margin="10" Grid.Column="2" Grid.Row="0" Content="_Close window" Click="CloseButton" ToolTip="Close window"/>
-        <TextBlock Foreground="#AAAAAA" Margin="0,0,30,10" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="2" Text="{Binding ElementName=WritingBox, Path=(local:CharacterCountBehavior.CharacterCount)}" />
+        <Button Style="{StaticResource btnStyle}" Width="100" HorizontalAlignment="Right" Margin="10" Grid.Column="2" Grid.Row="0" Content="_Close window" Click="CloseButton" ToolTip="Close window"/>
+        <TextBlock Foreground="#AAAAAA" Margin="0,0,30,10" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="2" Text="{Binding ElementName=WritingBox, Path=(local:CharacterCountBehavior.CharacterCount)}" Panel.ZIndex="3" />
 
         <RichTextBox  x:Name="WritingBox" InputLanguageManager.InputLanguage="en-US"  local:CharacterCountBehavior.RichTextBox="{Binding ElementName=WritingBox}" Style="{StaticResource rtbStyle}" Margin="10,0,10,0" Grid.Row="1" Grid.ColumnSpan="3" AcceptsReturn="True" ScrollViewer.VerticalScrollBarVisibility="Auto" TextChanged="AutoSave" />
         <GridSplitter Margin="10,0,10,0" Grid.Row="2" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" />
 
         <RichTextBox x:Name ="WritingBox2" InputLanguageManager.InputLanguage="en-US" local:CharacterCountBehavior.RichTextBox="{Binding ElementName=WritingBox2}" Style="{StaticResource rtbStyle}" Margin="10,0,10,0" Grid.Row="3" Grid.ColumnSpan="3" AcceptsReturn="True" ScrollViewer.VerticalScrollBarVisibility="Auto" TextChanged="AutoSave" />
-        <TextBlock Foreground="#AAAAAA" Margin="0,0,30,10" Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="2" Text="{Binding ElementName=WritingBox2, Path=(local:CharacterCountBehavior.CharacterCount)}" />
+        <TextBlock Foreground="#AAAAAA" Margin="0,0,30,10" Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="2" Text="{Binding ElementName=WritingBox2, Path=(local:CharacterCountBehavior.CharacterCount)}" Panel.ZIndex="3" />
 
         <TextBlock x:Name="StatusBox" VerticalAlignment="Top"  HorizontalAlignment="Right" Margin="10,0,20,10" Foreground="Gray" Grid.Row="1" Grid.Column="2" />
 
