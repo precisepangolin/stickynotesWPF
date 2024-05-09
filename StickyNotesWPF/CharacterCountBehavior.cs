@@ -39,7 +39,7 @@ namespace StickyNotesWPF
 
         private static void OnRichTextBoxChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            RichTextBox richTextBox = e.NewValue as RichTextBox;
+            RichTextBox richTextBox = (RichTextBox)e.NewValue;
             if (richTextBox != null)
             {
                 richTextBox.TextChanged += (sender, args) =>

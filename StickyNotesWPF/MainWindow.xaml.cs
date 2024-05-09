@@ -31,13 +31,21 @@ namespace StickyNotesWPF
         public MainWindow()
         {
             Loaded += MyWindow_Loaded;
+            FixTextRendering();
             InitializeComponent();
         }
 
         private void MyWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Welcome to sticky notes");
             LoadRTBContent(sender, e);
+        }
+
+        private void FixTextRendering()
+        {
+            // not sure if it's actually working
+            TextOptions.TextFormattingModeProperty.OverrideMetadata(typeof(Window), new FrameworkPropertyMetadata(TextFormattingMode.Display,
+FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsRender |
+FrameworkPropertyMetadataOptions.Inherits));
         }
 
         private void CloseButton(object sender, RoutedEventArgs e)
@@ -150,12 +158,16 @@ namespace StickyNotesWPF
             FileStream stream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
             rtb.Document.Blocks.Clear();
             rtb.Selection.Load(stream, DataFormats.Rtf);
+            TextRange range = new TextRange(rtb.Document.ContentStart, rtb.Document.ContentEnd);
+            SolidColorBrush brush = (SolidColorBrush)Application.Current.Resources["rtbFontColor"];
+            range.ApplyPropertyValue(TextElement.ForegroundProperty,  brush);
+           
         }
 
         private async void AutoSave(object sender, TextChangedEventArgs e)
         {
             StatusBox.Text = "•";
-            await Task.Delay(300);
+            await Task.Delay(500);
             SaveRTBContent(sender, e);
             StatusBox.Text = "";
         }

@@ -4,11 +4,27 @@
              xmlns:local="clr-namespace:StickyNotesWPF" xmlns:system="clr-namespace:System;assembly=mscorlib"
              Startup="Application_Startup">
     <Application.Resources>
-        <Style TargetType="{x:Type ScrollBar}">
-            <Setter Property="Background" Value="#0000"/>
-            <Setter Property="BorderThickness" Value="0"/>
-        </Style>
-        <system:Double x:Key="{x:Static SystemParameters.VerticalScrollBarWidthKey}">10</system:Double>
-        <system:Double x:Key="{x:Static SystemParameters.VerticalScrollBarButtonHeightKey}">10</system:Double>
+
+        <ResourceDictionary>
+            <!-- scrollbar style doesn't seem to work -->
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ScrollBarDictionary.xaml"/>
+                <ResourceDictionary Source="WindowStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <SolidColorBrush x:Key="brushWindowBg" Color="White"/>
+            <SolidColorBrush x:Key="brushRtbBg" Color="WhiteSmoke"/>
+            <SolidColorBrush x:Key="rtbFontColor" Color="#EE332622"/>
+            <SolidColorBrush x:Key="statusFontColor" Color="#AAAAAAAA"/>
+
+            <Style TargetType="{x:Type ScrollBar}">
+                <Setter Property="Background" Value="#0000"/>
+            </Style>
+
+            <system:Double x:Key="{x:Static SystemParameters.VerticalScrollBarWidthKey}">10</system:Double>
+
+            <system:Double x:Key="{x:Static SystemParameters.VerticalScrollBarButtonHeightKey}">10</system:Double>
+
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
