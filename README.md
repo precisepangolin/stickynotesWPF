@@ -14,9 +14,9 @@ It was supposed to be a remake of Windows Sticky Notes in WPF, but I changed my 
 * Dark mode
 
 ### TODO
-* Work on UI appearance
 * Switching between dark and light mode
 * Add bold, italics and underline to second writing box
+* Line numbering
 * Toggable autosave
 * Add bullet lists
 
