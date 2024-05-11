@@ -10,12 +10,9 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="ScrollBarDictionary.xaml"/>
                 <ResourceDictionary Source="WindowStyle.xaml"/>
+                <ResourceDictionary Source="LightStyle.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
-            <SolidColorBrush x:Key="brushWindowBg" Color="White"/>
-            <SolidColorBrush x:Key="brushRtbBg" Color="WhiteSmoke"/>
-            <SolidColorBrush x:Key="rtbFontColor" Color="#EE332622"/>
-            <SolidColorBrush x:Key="statusFontColor" Color="#AAAAAAAA"/>
 
             <Style TargetType="{x:Type ScrollBar}">
                 <Setter Property="Background" Value="#0000"/>

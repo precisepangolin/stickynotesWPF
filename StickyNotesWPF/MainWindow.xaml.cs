@@ -172,6 +172,21 @@ FrameworkPropertyMetadataOptions.Inherits));
             StatusBox.Text = "";
         }
 
+        private void ToggleDarkMode(object sender, RoutedEventArgs e)
+        {
+        
+            App.Current.Resources.MergedDictionaries.Clear();
+            App.Current.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri("WindowStyle.xaml", UriKind.RelativeOrAbsolute) });
+
+            App.Current.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri("DarkStyle.xaml", UriKind.RelativeOrAbsolute) });
+
+            App.Current.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri("ScrollBarDictionary.xaml", UriKind.RelativeOrAbsolute) });
+            MessageBox.Show("changed");
+
+        }
+
+
+
        
     }
 }

@@ -1,0 +1,8 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <SolidColorBrush x:Key="brushWindowBg" Color="White"/>
+    <SolidColorBrush x:Key="brushRtbBg" Color="WhiteSmoke"/>
+    <SolidColorBrush x:Key="rtbFontColor" Color="#EE332622"/>
+    <SolidColorBrush x:Key="statusFontColor" Color="#AAAAAAAA"/>
+</ResourceDictionary>
