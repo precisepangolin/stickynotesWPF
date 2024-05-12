@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StickyNotesWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
+        Title="MainWindow" Height="450" Width="800" MinHeight="300" MinWidth="700"
         WindowStyle="None"
         ResizeMode="CanResize"
         MouseDown="Window_MouseDown"
         >
 
     <Window.Resources>
-
+      
     </Window.Resources>
 
     <Grid Margin="0" x:Name="mainGrid" Style="{DynamicResource windowStyle}">
