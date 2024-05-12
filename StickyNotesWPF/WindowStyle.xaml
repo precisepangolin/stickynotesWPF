@@ -34,14 +34,22 @@
                 <Setter Property="TextOptions.TextFormattingMode" Value="Display"/>
                 <Style.Resources>
                     <Style TargetType="{x:Type Border}">
+                        <Setter Property="BorderThickness" Value="0" />
+                        <Setter Property="BorderBrush" Value="#0000"/>
+
+                    </Style>
+                </Style.Resources>
+            </Style>
+            <Style TargetType="Border" x:Name="rtbWrapperBorder">
                         <Setter Property="CornerRadius" Value="5" />
-                        <Setter Property="Effect">
+                <Setter Property="BorderBrush" Value="#AAAAAAAA"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="Effect">
                             <Setter.Value>
                                 <DropShadowEffect ShadowDepth="0" BlurRadius="2" Color="#AAAAAAAA" />
                             </Setter.Value>
                         </Setter>
-                    </Style>
-                </Style.Resources>
+               
             </Style>
         </Style.Resources>
     </Style>
