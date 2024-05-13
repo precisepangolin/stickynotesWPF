@@ -40,7 +40,7 @@ namespace StickyNotesWPF
             LoadRTBContent(sender, e);
         }
 
-        private void FixTextRendering()
+        private static void FixTextRendering()
         {
             // not sure if it's actually working
             TextOptions.TextFormattingModeProperty.OverrideMetadata(typeof(Window), new FrameworkPropertyMetadata(TextFormattingMode.Display,
@@ -141,10 +141,8 @@ FrameworkPropertyMetadataOptions.Inherits));
         private static void Save(string path, System.Windows.Controls.RichTextBox rtb)
         {
             TextRange text = new TextRange(rtb.Document.ContentStart, rtb.Document.ContentEnd);
-            using (FileStream file = new FileStream(path, FileMode.Create))
-            {
-                text.Save(file, System.Windows.DataFormats.Rtf);
-            }
+            using FileStream file = new FileStream(path, FileMode.Create);
+            text.Save(file, System.Windows.DataFormats.Rtf);
         }
 
         void LoadRTBContent(Object sender, RoutedEventArgs args)
@@ -161,7 +159,6 @@ FrameworkPropertyMetadataOptions.Inherits));
             TextRange range = new TextRange(rtb.Document.ContentStart, rtb.Document.ContentEnd);
             SolidColorBrush brush = (SolidColorBrush)Application.Current.Resources["rtbFontColor"];
             range.ApplyPropertyValue(TextElement.ForegroundProperty,  brush);
-           
         }
 
         private async void AutoSave(object sender, TextChangedEventArgs e)
@@ -174,19 +171,11 @@ FrameworkPropertyMetadataOptions.Inherits));
 
         private void ToggleDarkMode(object sender, RoutedEventArgs e)
         {
-        
             App.Current.Resources.MergedDictionaries.Clear();
             App.Current.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri("WindowStyle.xaml", UriKind.RelativeOrAbsolute) });
-
             App.Current.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri("DarkStyle.xaml", UriKind.RelativeOrAbsolute) });
-
             App.Current.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri("ScrollBarDictionary.xaml", UriKind.RelativeOrAbsolute) });
-            MessageBox.Show("changed");
-
         }
 
-
-
-       
     }
 }
