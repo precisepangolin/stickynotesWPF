@@ -156,9 +156,14 @@ FrameworkPropertyMetadataOptions.Inherits));
             FileStream stream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
             rtb.Document.Blocks.Clear();
             rtb.Selection.Load(stream, DataFormats.Rtf);
+            UpdateRtbFontColor(rtb);
+        }
+
+        private static void UpdateRtbFontColor(RichTextBox rtb)
+        {
             TextRange range = new TextRange(rtb.Document.ContentStart, rtb.Document.ContentEnd);
             SolidColorBrush brush = (SolidColorBrush)Application.Current.Resources["rtbFontColor"];
-            range.ApplyPropertyValue(TextElement.ForegroundProperty,  brush);
+            range.ApplyPropertyValue(TextElement.ForegroundProperty, brush);
         }
 
         private async void AutoSave(object sender, TextChangedEventArgs e)
@@ -175,6 +180,8 @@ FrameworkPropertyMetadataOptions.Inherits));
             App.Current.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri("WindowStyle.xaml", UriKind.RelativeOrAbsolute) });
             App.Current.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri("DarkStyle.xaml", UriKind.RelativeOrAbsolute) });
             App.Current.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri("ScrollBarDictionary.xaml", UriKind.RelativeOrAbsolute) });
+            UpdateRtbFontColor(WritingBox);
+            UpdateRtbFontColor(WritingBox2);
         }
 
     }
