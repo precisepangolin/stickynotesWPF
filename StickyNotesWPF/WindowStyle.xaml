@@ -3,6 +3,38 @@
 
 
 
+    
+    <ControlTemplate x:Key="ButtonTemplate1" TargetType="{x:Type ButtonBase}">
+        <ControlTemplate.Resources>
+            <Style TargetType="{x:Type Button}">
+                <Setter Property="Height" Value="20"/>
+                <Setter Property="Width" Value="40"/>
+            </Style>
+        </ControlTemplate.Resources>
+        <Border x:Name="border" Background="{DynamicResource brushRtbBg}" BorderBrush="{DynamicResource rtbFontColor}" CornerRadius="2" BorderThickness="1" SnapsToDevicePixels="true">
+            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="Button.IsDefaulted" Value="true">
+                <Setter Property="BorderBrush" TargetName="border" Value="yellow"/>
+                <Setter Property="BorderThickness" TargetName="border" Value="4"/>
+            </Trigger>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter Property="Background" TargetName="border" Value="{DynamicResource Button.MouseOver.Background}"/>
+                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource Button.MouseOver.Border}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="true">
+                <Setter Property="Background" TargetName="border" Value="{DynamicResource Button.Pressed.Background}"/>
+                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource Button.Pressed.Border}"/>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="false">
+                <Setter Property="Background" TargetName="border" Value="{DynamicResource Button.Disabled.Background}"/>
+                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource Button.Disabled.Border}"/>
+                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{DynamicResource Button.Disabled.Foreground}"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+    
     <Style x:Key="windowStyle" TargetType="Grid">
         <Setter Property="Background" Value="{DynamicResource brushWindowBg}"/>
         <Setter Property="TextOptions.TextFormattingMode" Value="Display"/>
@@ -51,6 +83,7 @@
                         </Setter>
                
             </Style>
+         
         </Style.Resources>
     </Style>
 </ResourceDictionary>
