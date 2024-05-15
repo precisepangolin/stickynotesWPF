@@ -3,14 +3,8 @@
 
 
 
-    
-    <ControlTemplate x:Key="ButtonTemplate1" TargetType="{x:Type ButtonBase}">
-        <ControlTemplate.Resources>
-            <Style TargetType="{x:Type Button}">
-                <Setter Property="Height" Value="20"/>
-                <Setter Property="Width" Value="40"/>
-            </Style>
-        </ControlTemplate.Resources>
+
+    <ControlTemplate x:Key="ButtonTemplate1" TargetType="{x:Type Button}">
         <Border x:Name="border" Background="{DynamicResource brushRtbBg}" BorderBrush="{DynamicResource rtbFontColor}" CornerRadius="2" BorderThickness="1" SnapsToDevicePixels="true">
             <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
         </Border>
@@ -27,6 +21,9 @@
                 <Setter Property="Background" TargetName="border" Value="{DynamicResource Button.Pressed.Background}"/>
                 <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource Button.Pressed.Border}"/>
             </Trigger>
+            <Trigger Property="IsEnabled" Value="true">
+                <Setter Property="TextElement.Foreground" Value="{DynamicResource rtbFontColor}"/>
+            </Trigger>
             <Trigger Property="IsEnabled" Value="false">
                 <Setter Property="Background" TargetName="border" Value="{DynamicResource Button.Disabled.Background}"/>
                 <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource Button.Disabled.Border}"/>
@@ -34,7 +31,7 @@
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
-    
+
     <Style x:Key="windowStyle" TargetType="Grid">
         <Setter Property="Background" Value="{DynamicResource brushWindowBg}"/>
         <Setter Property="TextOptions.TextFormattingMode" Value="Display"/>
@@ -48,7 +45,10 @@
             <Style TargetType="{x:Type GridSplitter}">
                 <Setter Property="Background" Value="{DynamicResource brushWindowBg}"/>
             </Style>
-            <Style TargetType="Button">
+            
+         
+
+            <!--<Style TargetType="Button">
                 <Setter Property="Foreground" Value="{DynamicResource rtbFontColor}"/>
                 <Setter Property="Height" Value="20"/>
                 <Setter Property="Width" Value="40"/>
@@ -59,7 +59,7 @@
                         <Setter Property="CornerRadius" Value="2" />
                     </Style>
                 </Style.Resources>
-            </Style>
+            </Style>-->
             <Style TargetType="{x:Type RichTextBox}">
                 <Setter Property="Background" Value="{DynamicResource brushRtbBg}"/>
                 <Setter Property="Foreground" Value="{DynamicResource rtbFontColor}"/>
