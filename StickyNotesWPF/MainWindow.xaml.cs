@@ -27,6 +27,7 @@ namespace StickyNotesWPF
 
         private readonly string fileLocation1 = Environment.ExpandEnvironmentVariables(@"%LOCALAPPDATA%\mystickynotesfile1.rtf");
         private readonly string fileLocation2 = Environment.ExpandEnvironmentVariables(@"%LOCALAPPDATA%\mystickynotesfile2.rtf");
+        private string currentTheme = "light";
         
         public MainWindow()
         {
@@ -178,8 +179,17 @@ FrameworkPropertyMetadataOptions.Inherits));
         {
             App.Current.Resources.MergedDictionaries.Clear();
             App.Current.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri("WindowStyle.xaml", UriKind.RelativeOrAbsolute) });
-            App.Current.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri("DarkStyle.xaml", UriKind.RelativeOrAbsolute) });
             App.Current.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri("ScrollBarDictionary.xaml", UriKind.RelativeOrAbsolute) });
+            if (currentTheme == "light")
+            {
+                App.Current.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri("DarkStyle.xaml", UriKind.RelativeOrAbsolute) });
+                currentTheme = "dark";
+            }
+            else
+            {
+                App.Current.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri("LightStyle.xaml", UriKind.RelativeOrAbsolute) });
+                currentTheme = "light";
+            }
             UpdateRtbFontColor(WritingBox);
             UpdateRtbFontColor(WritingBox2);
         }
