@@ -11,12 +11,11 @@ It was supposed to be a remake of Windows Sticky Notes in WPF, but I changed my 
 * Character counters
 * Autosave (saves both panels to local AppData folder)
 * Loads saved documents on window load
-* Dark mode
+* Switching between dark and light mode
+* Line numbering
 
 ### TODO
-* Switching between dark and light mode
 * Add bold, italics and underline to second writing box
-* Line numbering
 * Toggable autosave
 * Add bullet lists
 
