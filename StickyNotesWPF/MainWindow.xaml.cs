@@ -179,7 +179,7 @@ FrameworkPropertyMetadataOptions.Inherits));
         {
             App.Current.Resources.MergedDictionaries.Clear();
             App.Current.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri("WindowStyle.xaml", UriKind.RelativeOrAbsolute) });
-            App.Current.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri("ScrollBarDictionary.xaml", UriKind.RelativeOrAbsolute) });
+            App.Current.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri("CustomScrollbarDictionary.xaml", UriKind.RelativeOrAbsolute) });
             if (currentTheme == "light")
             {
                 App.Current.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri("DarkStyle.xaml", UriKind.RelativeOrAbsolute) });

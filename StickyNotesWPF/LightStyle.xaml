@@ -5,8 +5,10 @@
     <SolidColorBrush x:Key="brushRtbBg" Color="WhiteSmoke"/>
     <SolidColorBrush x:Key="rtbFontColor" Color="#EE332622"/>
     <SolidColorBrush x:Key="statusFontColor" Color="#AAAAAAAA"/>
+    <SolidColorBrush x:Key="rtbBorderBrush" Color="{DynamicResource rtbBorderColor}"/>
+    <Color x:Key="rtbBorderColor">#AAAAAA</Color>
     <!-- custom button colors -->
-    <SolidColorBrush x:Key="Button.MouseOver.Background" Color="HotPink"/>
+    <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#DDDDDD"/>
     <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
     <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
     <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>

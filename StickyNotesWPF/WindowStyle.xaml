@@ -74,7 +74,7 @@
             </Style>
             <Style TargetType="Border" x:Key="rtbBorderStyle">
                         <Setter Property="CornerRadius" Value="5" />
-                <Setter Property="BorderBrush" Value="#AAAAAAAA"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource rtbBorderBrush}"/>
                 <Setter Property="BorderThickness" Value="1"/>
                 <Setter Property="Effect">
                             <Setter.Value>

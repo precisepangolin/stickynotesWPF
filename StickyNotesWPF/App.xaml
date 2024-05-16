@@ -8,15 +8,14 @@
         <ResourceDictionary>
             <!-- scrollbar style doesn't seem to work -->
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="ScrollBarDictionary.xaml"/>
+               <!-- <ResourceDictionary Source="ScrollBarDictionary.xaml"/> -->
+                <ResourceDictionary Source="CustomScrollbarDictionary.xaml"/>
                 <ResourceDictionary Source="WindowStyle.xaml"/>
                 <ResourceDictionary Source="LightStyle.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
 
-            <Style TargetType="{x:Type ScrollBar}">
-                <Setter Property="Background" Value="#0000"/>
-            </Style>
+            
 
             <system:Double x:Key="{x:Static SystemParameters.VerticalScrollBarWidthKey}">10</system:Double>
 

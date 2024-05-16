@@ -4,6 +4,8 @@
     <SolidColorBrush x:Key="brushRtbBg" Color="DarkSlateBlue"/>
     <SolidColorBrush x:Key="rtbFontColor" Color="#EEFFEEDD"/>
     <SolidColorBrush x:Key="statusFontColor" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="rtbBorderBrush" Color="{DynamicResource rtbBorderColor}"/>
+    <Color x:Key="rtbBorderColor">#AAAAAA</Color>
     <!-- custom button colors -->
     <SolidColorBrush x:Key="Button.MouseOver.Background" Color="DarkOrange"/>
     <SolidColorBrush x:Key="Button.MouseOver.Border" Color="DarkRed"/>
