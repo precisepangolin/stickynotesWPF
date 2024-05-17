@@ -17,7 +17,7 @@ Originally I intended to make another recreation of the Microsoft Sticky Notes (
 * Add bold, italics and underline to second writing box
 * Add toggable autosave
 * Add bullet lists
-* Save default theme (light dark)
+* Save chosen theme as default
 * Appearance improvement
 
 ## Screenshots
