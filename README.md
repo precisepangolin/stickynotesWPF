@@ -1,7 +1,6 @@
-# sticky notes?
+# Notes
 
-WIP
-It was supposed to be a remake of Windows Sticky Notes in WPF, but I changed my mind and now it's probably going to be a custom notes app. Maybe.
+It was supposed to be a remake of Windows Sticky Notes in WPF, but I changed my mind and now it's probably going to be a custom notes app.
 
 ## Features
 
@@ -19,7 +18,7 @@ It was supposed to be a remake of Windows Sticky Notes in WPF, but I changed my 
 * Toggable autosave
 * Add bullet lists
 
-## Screenshot
+## Screenshot (to be updated)
 ![image](https://github.com/precisepangolin/stickynotesWPF/assets/61357898/37fee2b4-be93-447c-85ff-a52a121f538b)
 
 
