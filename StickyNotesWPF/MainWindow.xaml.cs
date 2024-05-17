@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace StickyNotesWPF
 {
@@ -27,18 +28,32 @@ namespace StickyNotesWPF
 
         private readonly string fileLocation1 = Environment.ExpandEnvironmentVariables(@"%LOCALAPPDATA%\mystickynotesfile1.rtf");
         private readonly string fileLocation2 = Environment.ExpandEnvironmentVariables(@"%LOCALAPPDATA%\mystickynotesfile2.rtf");
-        private string currentTheme = "light";
+        private static readonly string configFileLocation = Environment.ExpandEnvironmentVariables(@"%LOCALAPPDATA%\mystickynotesconfig.ini");
+        private string currentTheme = GetConfigTheme();
         
         public MainWindow()
         {
             Loaded += MyWindow_Loaded;
+            
             FixTextRendering();
             InitializeComponent();
         }
 
         private void MyWindow_Loaded(object sender, RoutedEventArgs e)
         {
+            LoadDefaultTheme(sender, e);
             LoadRTBContent(sender, e);
+        }
+
+        private static string GetConfigTheme()
+        {
+            if (!File.Exists(configFileLocation))
+            {
+                File.WriteAllText(configFileLocation, "light");
+            }
+  
+           string readFromIni = File.ReadAllText(configFileLocation);
+           return readFromIni;
         }
 
         private static void FixTextRendering()
@@ -163,7 +178,7 @@ FrameworkPropertyMetadataOptions.Inherits));
         private static void UpdateRtbFontColor(RichTextBox rtb)
         {
             TextRange range = new TextRange(rtb.Document.ContentStart, rtb.Document.ContentEnd);
-            SolidColorBrush brush = (SolidColorBrush)Application.Current.Resources["rtbFontColor"];
+            SolidColorBrush brush = (SolidColorBrush)System.Windows.Application.Current.Resources["rtbFontColor"];
             range.ApplyPropertyValue(TextElement.ForegroundProperty, brush);
         }
 
@@ -177,21 +192,36 @@ FrameworkPropertyMetadataOptions.Inherits));
 
         private void ToggleDarkMode(object sender, RoutedEventArgs e)
         {
-            App.Current.Resources.MergedDictionaries.Clear();
-            App.Current.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri("WindowStyle.xaml", UriKind.RelativeOrAbsolute) });
-            App.Current.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri("CustomScrollbarDictionary.xaml", UriKind.RelativeOrAbsolute) });
             if (currentTheme == "light")
             {
-                App.Current.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri("DarkStyle.xaml", UriKind.RelativeOrAbsolute) });
+                LoadTheme("dark");
                 currentTheme = "dark";
+                File.WriteAllText(configFileLocation, "dark");
             }
             else
             {
-                App.Current.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri("LightStyle.xaml", UriKind.RelativeOrAbsolute) });
+                LoadTheme("light");
                 currentTheme = "light";
+                File.WriteAllText(configFileLocation, "light");
             }
             UpdateRtbFontColor(WritingBox);
             UpdateRtbFontColor(WritingBox2);
+        }
+
+        private void LoadDefaultTheme(object sender, RoutedEventArgs e)
+        {
+            LoadTheme(currentTheme);
+        }
+
+        private void LoadTheme(string theme)
+        {
+            string toLoad = "LightStyle.xaml";
+            if (theme == "dark") { toLoad = "DarkStyle.xaml"; }
+            App.Current.Resources.MergedDictionaries.Clear();
+            App.Current.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri("WindowStyle.xaml", UriKind.RelativeOrAbsolute) });
+            App.Current.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri("CustomScrollbarDictionary.xaml", UriKind.RelativeOrAbsolute) });
+            App.Current.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri(toLoad, UriKind.RelativeOrAbsolute) });
+
         }
 
     }
