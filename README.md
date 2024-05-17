@@ -1,6 +1,6 @@
-# Notes
+# Notes App
 
-It was supposed to be a remake of Windows Sticky Notes in WPF, but I changed my mind and now it's probably going to be a custom notes app.
+Originally I intended to make another recreation of the Microsoft Sticky Notes (check out my other project in WinForms), but I changed my mind during development. Currently it features two adjustable writing panels with autosave and other features that are described below. You can now take notes and compare them without having to mess with multiple windows or tabs :)
 
 ## Features
 
@@ -9,13 +9,13 @@ It was supposed to be a remake of Windows Sticky Notes in WPF, but I changed my 
 * Togglable spellcheck
 * Character counters
 * Autosave (saves both panels to local AppData folder)
-* Loads saved documents on window load
-* Switching between dark and light mode
+* Saved documents are automatically loaded
+* Toggable dark and light mode
 * Line numbering
 
 ### TODO
 * Add bold, italics and underline to second writing box
-* Toggable autosave
+* Add toggable autosave
 * Add bullet lists
 
 ## Screenshot (to be updated)
