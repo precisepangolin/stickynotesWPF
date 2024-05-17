@@ -17,9 +17,17 @@ Originally I intended to make another recreation of the Microsoft Sticky Notes (
 * Add bold, italics and underline to second writing box
 * Add toggable autosave
 * Add bullet lists
+* Save default theme (light dark)
+* Appearance improvement
 
-## Screenshot (to be updated)
-![image](https://github.com/precisepangolin/stickynotesWPF/assets/61357898/37fee2b4-be93-447c-85ff-a52a121f538b)
+## Screenshots
+
+* Light mode (default)
+![image](https://github.com/precisepangolin/stickynotesWPF/assets/61357898/30fea92c-2107-47ef-b65f-469b05a4b160)
+
+* Dark mode
+![image](https://github.com/precisepangolin/stickynotesWPF/assets/61357898/7933165e-7a3c-4ce9-905c-e4ddbb75db73)
+
 
 
 
