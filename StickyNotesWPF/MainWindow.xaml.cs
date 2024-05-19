@@ -220,6 +220,7 @@ FrameworkPropertyMetadataOptions.Inherits));
             App.Current.Resources.MergedDictionaries.Clear();
             App.Current.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri("WindowStyle.xaml", UriKind.RelativeOrAbsolute) });
             App.Current.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri("CustomScrollbarDictionary.xaml", UriKind.RelativeOrAbsolute) });
+            App.Current.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri("CustomRtbDictionary.xaml", UriKind.RelativeOrAbsolute) });
             App.Current.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri(toLoad, UriKind.RelativeOrAbsolute) });
 
         }

@@ -12,6 +12,8 @@
                 <ResourceDictionary Source="CustomScrollbarDictionary.xaml"/>
                 <ResourceDictionary Source="WindowStyle.xaml"/>
                 <ResourceDictionary Source="LightStyle.xaml"/>
+
+                <ResourceDictionary Source="CustomRtbDictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
 

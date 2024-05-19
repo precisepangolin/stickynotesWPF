@@ -25,6 +25,10 @@
                 <Setter Property="Template" Value="{DynamicResource CustomScrollBarTemplate}"/>
                 <Setter Property="Background" Value="{DynamicResource brushRtbBg}"/>
             </Style>
+            <Style TargetType="RichTextBox">
+                <Setter Property="Template" Value="{DynamicResource CustomRichTextBoxTemplate}"/>
+                 
+            </Style>
         </Grid.Resources>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10"/>

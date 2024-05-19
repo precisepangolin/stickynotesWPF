@@ -60,7 +60,7 @@
                     </Style>
                 </Style.Resources>
             </Style>-->
-            <Style TargetType="{x:Type RichTextBox}">
+            <Style x:Key="rtbStyle" TargetType="{x:Type RichTextBox}">
                 <Setter Property="Background" Value="{DynamicResource brushRtbBg}"/>
                 <Setter Property="Foreground" Value="{DynamicResource rtbFontColor}"/>
                 <Setter Property="TextOptions.TextFormattingMode" Value="Display"/>
@@ -86,4 +86,5 @@
          
         </Style.Resources>
     </Style>
+    
 </ResourceDictionary>
