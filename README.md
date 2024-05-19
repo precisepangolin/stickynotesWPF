@@ -10,14 +10,13 @@ Originally I intended to make another recreation of the Microsoft Sticky Notes (
 * Character counters
 * Autosave (saves both panels to local AppData folder)
 * Saved documents are automatically loaded
-* Toggable dark and light mode
+* Toggable dark and light mode; chosen theme is saved as default
 * Line numbering
 
 ### TODO
 * Add bold, italics and underline to second writing box
 * Add toggable autosave
 * Add bullet lists
-* Save chosen theme as default
 * Appearance improvement
 
 ## Screenshots
