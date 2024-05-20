@@ -98,11 +98,43 @@ FrameworkPropertyMetadataOptions.Inherits));
             }
         }
 
-        private void Bold_MouseUp(object sender, RoutedEventArgs e)
+        private RichTextBox GetFocusedRtb()
         {
-            if (WritingBox.Selection != null)
+            var currentFocus = Keyboard.FocusedElement;
+            if (currentFocus.GetType() == typeof(RichTextBox))
             {
-                MakeTextBold(WritingBox);
+                RichTextBox currentRtb = (RichTextBox)currentFocus;
+                if (currentRtb.Selection != null)
+                {
+                    return currentRtb;
+                }
+            }
+            return null;
+        }
+
+        private void Bold_MouseDown(object sender, RoutedEventArgs e)
+        {
+                RichTextBox currentRtb = GetFocusedRtb();
+                if (currentRtb != null)
+                {
+                    MakeTextBold(currentRtb);
+                }     
+        }
+        private void Italic_MouseDown(object sender, RoutedEventArgs e)
+        {
+            RichTextBox currentRtb = GetFocusedRtb();
+            if (currentRtb != null)
+            {
+                MakeTextItalic(currentRtb);
+            }
+        }
+
+        private void Underline_MouseDown(object sender, RoutedEventArgs e)
+        {
+            RichTextBox currentRtb = GetFocusedRtb();
+            if (currentRtb != null)
+            {
+                MakeTextUnderline(currentRtb);
             }
         }
 
@@ -118,35 +150,31 @@ FrameworkPropertyMetadataOptions.Inherits));
             }
         }
 
-        private void Italic_MouseUp(object sender, RoutedEventArgs e)
+        private static void MakeTextItalic(System.Windows.Controls.RichTextBox rtb)
         {
-            if (WritingBox.Selection != null)
+            if (!rtb.Selection.GetPropertyValue(TextElement.FontStyleProperty).Equals(FontStyles.Italic))
             {
-                if (!WritingBox.Selection.GetPropertyValue(TextElement.FontStyleProperty).Equals(FontStyles.Italic))
-                {
-                    WritingBox.Selection.ApplyPropertyValue(TextElement.FontStyleProperty, FontStyles.Italic);
-                }
-                else
-                {
-                    WritingBox.Selection.ApplyPropertyValue(TextElement.FontStyleProperty, FontStyles.Normal);
-                }
+                rtb.Selection.ApplyPropertyValue(TextElement.FontStyleProperty, FontStyles.Italic);
+            }
+            else
+            {
+                rtb.Selection.ApplyPropertyValue(TextElement.FontStyleProperty, FontStyles.Normal);
             }
         }
 
-        private void Underline_MouseUp(object sender, RoutedEventArgs e)
+        private static void MakeTextUnderline(System.Windows.Controls.RichTextBox rtb)
         {
-            if (WritingBox.Selection != null)
+            if (!rtb.Selection.GetPropertyValue(Inline.TextDecorationsProperty).Equals(TextDecorations.Underline))
             {
-                if (!WritingBox.Selection.GetPropertyValue(Inline.TextDecorationsProperty).Equals(TextDecorations.Underline))
-                {
-                    WritingBox.Selection.ApplyPropertyValue(Inline.TextDecorationsProperty, TextDecorations.Underline);
-                }
-                else
-                {
-                    WritingBox.Selection.ApplyPropertyValue(Inline.TextDecorationsProperty, null);
-                }
+                rtb.Selection.ApplyPropertyValue(Inline.TextDecorationsProperty, TextDecorations.Underline);
+            }
+            else
+            {
+                rtb.Selection.ApplyPropertyValue(Inline.TextDecorationsProperty, null);
             }
         }
+
+
 
         void SaveRTBContent(Object sender, RoutedEventArgs args)
         {
