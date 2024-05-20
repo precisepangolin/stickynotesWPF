@@ -21,10 +21,12 @@ Originally I intended to make another recreation of the Microsoft Sticky Notes (
 ## Screenshots
 
 * Light mode (default)
-![image](https://github.com/precisepangolin/stickynotesWPF/assets/61357898/30fea92c-2107-47ef-b65f-469b05a4b160)
+![image](https://github.com/precisepangolin/stickynotesWPF/assets/61357898/f873c475-6a93-42a4-9cc6-c3903f50aec8)
+
 
 * Dark mode
-![image](https://github.com/precisepangolin/stickynotesWPF/assets/61357898/7933165e-7a3c-4ce9-905c-e4ddbb75db73)
+![image](https://github.com/precisepangolin/stickynotesWPF/assets/61357898/b4dcba76-f7a2-4da1-b5c9-61e40b164ce4)
+
 
 
 
