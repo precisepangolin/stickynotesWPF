@@ -14,7 +14,6 @@ Originally I intended to make another recreation of the Microsoft Sticky Notes (
 * Line numbering
 
 ### TODO
-* Add bold, italics and underline to second writing box
 * Add toggable autosave
 * Add bullet lists
 * Appearance improvement
