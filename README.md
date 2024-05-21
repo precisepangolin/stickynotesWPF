@@ -14,9 +14,9 @@ Originally I intended to make another recreation of the Microsoft Sticky Notes (
 * Line numbering
 
 ### TODO
-* Add toggable autosave
 * Add bullet lists
-* Appearance improvement
+* Rounded scrollbar corners?
+* Toggable autosave?
 
 ## Screenshots
 
