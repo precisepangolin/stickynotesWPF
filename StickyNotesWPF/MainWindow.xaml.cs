@@ -88,15 +88,17 @@ FrameworkPropertyMetadataOptions.Inherits));
             }
         }
 
-        private void ClearFormatting_MouseUp(object sender, RoutedEventArgs e)
+        private void ClearFormatting_MouseDown(object sender, RoutedEventArgs e)
         {
-            if (WritingBox.Selection != null)
+            RichTextBox currentRtb = GetFocusedRtb();
+            if (currentRtb != null)
             {
-                WritingBox.Selection.ApplyPropertyValue(TextElement.FontWeightProperty, FontWeights.Normal);
-                WritingBox.Selection.ApplyPropertyValue(TextElement.FontStyleProperty, FontStyles.Normal);
-                WritingBox.Selection.ApplyPropertyValue(Inline.TextDecorationsProperty, null);
+                currentRtb.Selection.ApplyPropertyValue(TextElement.FontWeightProperty, FontWeights.Normal);
+                currentRtb.Selection.ApplyPropertyValue(TextElement.FontStyleProperty, FontStyles.Normal);
+                currentRtb.Selection.ApplyPropertyValue(Inline.TextDecorationsProperty, null);
             }
         }
+
 
         private RichTextBox GetFocusedRtb()
         {
