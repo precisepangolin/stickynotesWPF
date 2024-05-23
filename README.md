@@ -15,6 +15,7 @@ Originally I intended to make another recreation of the Microsoft Sticky Notes (
 
 ### TODO
 * Add bullet lists
+* Dropdown list with multiple color themes
 * Rounded scrollbar corners?
 * Toggable autosave?
 
